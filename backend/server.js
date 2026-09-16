@@ -70,7 +70,8 @@ app.get("/", (req, res) => {   //home route this route executed in browser open
   });
 });
 
-app.post("/login", (req, res) => {
+// ===== API ROUTES =====
+app.post("/api/login", (req, res) => {
   const { email, password } = req.body;
   console.log("Frontend mail:",email)
   console.log("frontend password:",password)
@@ -100,7 +101,7 @@ app.post("/login", (req, res) => {
 });
 
 
-app.post("/sendmail", authMiddleware, async (req, res) => {   //sendmail is protected route first run authmiddleware if its correct then execute mail sending code 
+app.post("/api/sendmail", authMiddleware, async (req, res) => {   //sendmail is protected route first run authmiddleware if its correct then execute mail sending code 
   const { subject, body, recipients } = req.body; 
  
   if ( 
@@ -145,7 +146,7 @@ app.post("/sendmail", authMiddleware, async (req, res) => {   //sendmail is prot
   } 
 })
 
-app.get("/emails", authMiddleware, async (req, res) => {   //history fetch api
+app.get("/api/emails", authMiddleware, async (req, res) => {   //history fetch api
     
     try {
     await connectDB()
@@ -173,5 +174,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
-
-

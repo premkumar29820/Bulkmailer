@@ -12,7 +12,7 @@ const History = () => {
         const token = localStorage.getItem("token");  //get login token
 
         const response = await axios.get(
-          `${import.meta.env.API_URL}/emails`,
+          `${import.meta.env.REACT_APP_API_URL}/emails`,
           {
             headers: {
               Authorization: `Bearer ${token}`   //send jwt token for protected route

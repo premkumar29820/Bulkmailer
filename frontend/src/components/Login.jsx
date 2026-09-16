@@ -13,7 +13,7 @@ const Login = ({ onLogin }) => {
     setstatus(true); // start login
 
     try {
-      const response = await axios.post(`${import.meta.env.API_URL}/login`, {
+      const response = await axios.post(`${import.meta.env.REACT_APP_API_URL}/login`, {
         email,
         password
       });

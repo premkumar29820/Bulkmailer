@@ -168,7 +168,10 @@ app.get("/emails", authMiddleware, async (req, res) => {   //history fetch api
 });
 
 
+const PORT = process.env.PORT || 5000;
 
-module.exports = app;
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 
